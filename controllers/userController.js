@@ -281,6 +281,3 @@ export const adminDeleteAnyUser=bigPromise(async(req,res,next)=>{
 })
 
 
-export const anu=bigPromise(async(req,res,next)=>{
-    
-})
