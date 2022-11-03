@@ -13,7 +13,7 @@ const productSchema = new mongoose.Schema({
         maxlength:[5,"Product price should not be more than 5 digits"]
     },
     description:{
-        type:Number,
+        type:String,
         required:[true,"Please provide description for your product"]
     },
     photos:[{
@@ -27,10 +27,10 @@ const productSchema = new mongoose.Schema({
         }
     }],
     category:{
-        type:Number, 
-        required:[true,"Please select category from short-sleeves, long-sleeves, sweatshirt, hoodies"],
+        type:String, 
+        required:[true,"Please select category from shortsleeves, longsleeves, sweatshirt, hoodies"],
         enum:{
-            values:["short-sleeves","long-sleeves","sweatshirt","hoodies"],
+            values:["shortsleeves","longsleeves","sweatshirt","hoodies"],
             message:"Please select among the following categories"
         }
     },

@@ -4,6 +4,7 @@ import connectDB from "./config/db.js"
 dotenv.config();
 const app=express()
 import cookieParser from "cookie-parser"
+import bodyParser from "body-parser"
 
 //cookies and filemiddleware
 app.use(cookieParser())
@@ -16,6 +17,8 @@ app.use(morgan("tiny"))
 // regular middlewares
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({extended:true}))
+
 
 // import all routes here
 import userRoutes from "./routes/userRoutes.js"

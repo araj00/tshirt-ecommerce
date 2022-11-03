@@ -70,6 +70,7 @@ export const logout=bigPromise(async(req,res,next)=>{
         success:true,
         message:"loggedOut Successfully"
     })
+    
 })
 
 export const forgotPassword=bigPromise(async(req,res,next)=>{
@@ -194,6 +195,12 @@ export const updateUserDetails=bigPromise(async(req,res,next)=>{
 
 
     const user = await User.findByIdAndUpdate(req.user.id,newData,{
+        new:true,
+        runValidators:true,
+        useFindAndModify:false
+    })
+
+    const userT = await User.findByIdAndUpdate(req.user.id,newData,{
         new:true,
         runValidators:true,
         useFindAndModify:false
