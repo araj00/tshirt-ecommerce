@@ -93,5 +93,17 @@ export const getAllProduct = bigPromise(async(req,res,next)=>{
 
 
 export const adminGetAllProduct = bigPromise(async(req,res,next)=>{
-    
+    const products = await Product.find();
+    if(!products)
+    {
+        return res.status(501).json({
+            success:false,
+            message:"No products available!"
+        })
+    }
+
+    res.status(200).json({
+        success:true,
+        products
+    })
 })

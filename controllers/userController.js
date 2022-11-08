@@ -274,7 +274,7 @@ export const adminDeleteAnyUser=bigPromise(async(req,res,next)=>{
     console.log(user)
 
     if(!user){
-        return res.status(401).json({
+        return res.status(501).json({
             success:false,
             message:"No user found with this id "
         })
