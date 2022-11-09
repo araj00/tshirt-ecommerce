@@ -243,7 +243,7 @@ export const adminGetOneUser=bigPromise(async(req,res,next)=>{
 export const adminUpdateOneUser=bigPromise(async(req,res,next)=>{
     
     if(!(req.body.email || req.body.name)) {
-        return res.status(400).json({
+        return res.status(500).json({
             success:"false",
             message:"Name or Email fields are required."
         })
