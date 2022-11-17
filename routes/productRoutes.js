@@ -2,7 +2,7 @@ import express from "express"
 const router = express.Router()
 
 // product controllers
-import { addProduct, adminGetAllProduct, adminUpdateOneProduct, getAllProduct, getOneProduct, adminDeleteOneProduct } from "../controllers/productController.js"
+import { addProduct, adminGetAllProduct, adminUpdateOneProduct, getAllProduct, getOneProduct, adminDeleteOneProduct, addReview, deleteReview, getReviewsForOneProduct } from "../controllers/productController.js"
 
 // import middlewares 
 import { isLoggedIn , customRole} from "../middlewares/userMiddlewares.js"
@@ -15,6 +15,10 @@ const upload = multer({ dest: 'uploads/' })
 // router.route("/testProduct").post(testProduct)
 router.route("/products").get(getAllProduct)
 router.route("/getOneProduct/:id").get(getOneProduct)
+router.route("/review").put(isLoggedIn ,addReview)
+router.route("/review").delete(isLoggedIn, deleteReview)
+router.route("/reviews").get(isLoggedIn ,getReviewsForOneProduct)
+ 
 
 // admin routes
 router.route("/admin/product/add").post(isLoggedIn, customRole('admin'),upload.array('photos',12), addProduct)

@@ -23,10 +23,12 @@ app.use(bodyParser.urlencoded({extended:true}))
 // import all routes here
 import userRoutes from "./routes/userRoutes.js"
 import productRoutes from "./routes/productRoutes.js"
+import paymentRoutes from "./routes/paymentRoutes.js"
 
 // router middleware
 app.use("/api/v1",userRoutes);
 app.use("/api/v1",productRoutes);
+app.use("/api/v1",paymentRoutes);
 
 
 export default app;
