@@ -5,9 +5,11 @@ dotenv.config();
 const app=express()
 import cookieParser from "cookie-parser"
 import bodyParser from "body-parser"
+import cors from "cors"
 
 //cookies and filemiddleware
 app.use(cookieParser())
+app.use(cors())
 
 
 // morgan middlewares
